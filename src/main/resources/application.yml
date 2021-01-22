@@ -1,0 +1,10 @@
+server:
+  port: 81
+
+#配置数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-2zegr75tx5c7v668xto.mysql.rds.aliyuncs.com:3306/pay?serverTimezone=GMT&amp&userSSL=false
+    username: root
+    password: root
