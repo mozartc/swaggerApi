@@ -8,6 +8,9 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 /**
  * @author mozartc。
  * @date 2020/7/18 10:07
+ * http://localhost:81/swagger-ui/      swagger-ui
+ * http://localhost:81/doc.html#/home   knife4j
+ * https://doc.xiaominfo.com/knife4j/
  */
 @EnableOpenApi
 @SpringBootApplication
