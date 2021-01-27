@@ -3,6 +3,7 @@ package com.ali.controller;
 
 import com.ali.entity.UserRecord;
 import com.ali.service.UserRecordService;
+import com.ali.util.RedisUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.api.R;
@@ -30,6 +31,8 @@ public class UserRecordController extends ApiController {
      */
     @Resource
     private UserRecordService userRecordService;
+    @Resource
+    private RedisUtil redisUtil;
 
     /**
      * 分页查询所有数据
@@ -51,7 +54,8 @@ public class UserRecordController extends ApiController {
     @ApiOperation("通过主键查询单条数据")
     @GetMapping("{id}")
     public R selectOne(@PathVariable Serializable id) {
-        return success(this.userRecordService.getById(id));
+        //return success(this.userRecordService.getById(id));
+        return success(redisUtil.get(id.toString()));
     }
 
     /**
@@ -62,6 +66,7 @@ public class UserRecordController extends ApiController {
     @ApiOperation("新增数据")
     @PostMapping("insert")
     public R insert(@RequestBody UserRecord userRecord) {
+        redisUtil.set(userRecord.getId().toString(),userRecord);
         return success(this.userRecordService.save(userRecord));
     }
 

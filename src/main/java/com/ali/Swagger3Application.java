@@ -3,6 +3,7 @@ package com.ali;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import springfox.documentation.oas.annotations.EnableOpenApi;
 
 /**
@@ -15,6 +16,7 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 @EnableOpenApi
 @SpringBootApplication
 @MapperScan(basePackages = {"com.ali.dao"})
+@EnableCaching
 public class Swagger3Application {
     public static void main(String[] args) {
         SpringApplication.run(Swagger3Application.class, args);
